@@ -1,6 +1,6 @@
 # GosuTexturePacker
 
-TexturePacker support for Gosu game engine
+[TexturePacker](http://www.codeandweb.com/texturepacker) support for [Gosu](https://github.com/jlnr/gosu) game engine.
 
 ## Installation
 
@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+tileset = Gosu::TexturePacker::Tileset.load_json('/path/to/tileset.json')
+frame_names = tileset.frame_list
+tile = tileset.frame(frame_names.first)
+tile.draw(0, 0, 0) # tile is Gosu::Image
+```
 
 ## Contributing
 
