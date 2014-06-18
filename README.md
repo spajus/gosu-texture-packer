@@ -28,6 +28,19 @@ tile = tileset.frame(frame_names.first)
 tile.draw(0, 0, 0) # tile is Gosu::Image
 ```
 
+## Example Code
+
+Run
+[examples/tile_brush.rb](https://github.com/spajus/gosu-texture-packer/blob/master/examples/tile_brush.rb)
+to see `gosu_texture_packer` in action.
+
+Example tileset is loaded from
+[spec/files](https://github.com/spajus/gosu-texture-packer/tree/master/spec/files) directory.
+
+Click the window to draw random tiles.
+
+![Gosu TexturePacker Example](https://raw.githubusercontent.com/spajus/gosu-texture-packer/master/examples/screenshots/tile_brush.png)
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/gosu_texture_packer/fork )
