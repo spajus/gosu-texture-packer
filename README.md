@@ -1,5 +1,8 @@
 # GosuTexturePacker
 
+[![Gem
+Version](https://badge.fury.io/rb/gosu_texture_packer.svg)](http://badge.fury.io/rb/gosu_texture_packer)
+
 [TexturePacker](http://www.codeandweb.com/texturepacker) support for [Gosu](https://github.com/jlnr/gosu) game engine.
 
 ## Installation
