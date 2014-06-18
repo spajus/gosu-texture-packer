@@ -1,11 +1,6 @@
-gosu-texture-packer
-===================
-
-TexturePacker support for Gosu game engine
-=======
 # GosuTexturePacker
 
-TODO: Write a gem description
+TexturePacker support for Gosu game engine
 
 ## Installation
 
