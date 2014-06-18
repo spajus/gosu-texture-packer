@@ -12,7 +12,7 @@ RSpec.describe Gosu::TexturePacker::Tileset do
     tileset_class.load_json(game_window, tileset)
   end
 
-  describe '#load_json' do
+  describe '.load_json' do
     it 'loads existing file' do
       expect { subject }.to_not raise_error
     end

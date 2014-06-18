@@ -22,7 +22,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-tileset = Gosu::TexturePacker::Tileset.load_json(gosu_window, '/path/to/tileset.json')
+tileset = Gosu::TexturePacker.load_json(gosu_window, '/path/to/tileset.json')
 frame_names = tileset.frame_list
 tile = tileset.frame(frame_names.first)
 tile.draw(0, 0, 0) # tile is Gosu::Image
