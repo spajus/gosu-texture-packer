@@ -43,6 +43,7 @@ Click the window to draw random tiles.
 
 ## Contributing
 
+0. Read [CONTRIBUTING.md](https://github.com/spajus/gosu-texture-packer/blob/master/CONTRIBUTING.md)
 1. Fork it ( https://github.com/[my-github-username]/gosu_texture_packer/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
