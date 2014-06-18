@@ -1,4 +1,5 @@
 require 'json'
+require 'rmagick'
 module Gosu
   module TexturePacker
     class Tileset
@@ -11,7 +12,7 @@ module Gosu
         @window = window
         @json = JSON.parse(File.read(json))
         @source_dir = File.dirname(json)
-        @main_image = Gosu::Image.new(@window, image_file, true)
+        @main_image = Magick::ImageList.new(image_file).first
         @tile_cache = {}
       end
 
@@ -24,13 +25,17 @@ module Gosu
         unless tile
           data = frames[name]
           f = data['frame']
-          tile = @main_image.subimage(f['x'], f['y'], f['w'], f['h'])
+          tile = build_tile(f)
           @tile_cache[name] = tile
         end
         tile
       end
 
       private
+
+      def build_tile(f)
+        Gosu::Image.new(@window, @main_image, true, f['x'], f['y'], f['w'], f['h'])
+      end
 
       def image_file
         File.join(@source_dir, meta['image'])

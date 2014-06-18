@@ -1,2 +1,3 @@
-Art source: http://opengameart.org/content/zwischenwelt-tileset
-License: Public Domain
+Art sources:
+- http://opengameart.org/content/zwischenwelt-tileset
+- http://opengameart.org/content/ground-tileset-grass-sand
