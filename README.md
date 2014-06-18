@@ -1,9 +1,9 @@
-# GosuTexturePacker
+# gosu_texture_packer
 
 [![Gem Version](https://badge.fury.io/rb/gosu_texture_packer.svg)](http://badge.fury.io/rb/gosu_texture_packer)
 [![Code Climate](https://codeclimate.com/github/spajus/gosu-texture-packer.png?branch=master)](https://codeclimate.com/github/spajus/gosu-texture-packer)
 
-[TexturePacker](http://www.codeandweb.com/texturepacker) support for [Gosu](https://github.com/jlnr/gosu) game engine.
+Ruby gem that provides [Texture Packer](http://www.codeandweb.com/texturepacker) support for [Gosu](https://github.com/jlnr/gosu) game engine.
 
 ## Installation
 
