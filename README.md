@@ -28,6 +28,17 @@ tile = tileset.frame(frame_names.first)
 tile.draw(0, 0, 0) # tile is Gosu::Image
 ```
 
+You may find that your tiles have "bleeding edges" when you stack them together. To avoid that,
+either use `--extrude 1` or `--reduce-border-artifacts` when exporting Texture Packer tileset, or
+provide `:precise` mode parameter to `load_json`:
+
+```ruby
+tileset = Gosu::TexturePacker.load_json(gosu_window, '/path/to/tileset.json', :precise)
+```
+
+However, loading with `:precise` mode will significantly increase memory consumption and reduce
+load time, so use it carefully.
+
 ## Example Code
 
 Run

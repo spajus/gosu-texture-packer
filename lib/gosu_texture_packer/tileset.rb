@@ -1,18 +1,18 @@
 require 'json'
-require 'rmagick'
 module Gosu
   module TexturePacker
     class Tileset
 
-      def self.load_json(window, json)
-        self.new(window, json)
+      def self.load_json(window, json, mode = :fast)
+        self.new(window, json, mode)
       end
 
-      def initialize(window, json)
+      def initialize(window, json, mode)
+        @mode = mode
         @window = window
         @json = JSON.parse(File.read(json))
         @source_dir = File.dirname(json)
-        @main_image = Magick::ImageList.new(image_file).first
+        @main_image = build_main_image(mode)
         @tile_cache = {}
       end
 
@@ -33,8 +33,24 @@ module Gosu
 
       private
 
+      def build_main_image(mode)
+        case mode
+        when :fast
+          Gosu::Image.new(@window, image_file, true)
+        when :precise
+          require 'rmagick' unless defined?(Magick)
+          Magick::ImageList.new(image_file).first
+        else
+          raise "Unsupported mode #{mode}. Use :fast or :precise."
+        end
+      end
+
       def build_tile(f)
-        Gosu::Image.new(@window, @main_image, true, f['x'], f['y'], f['w'], f['h'])
+        if @mode == :fast
+          @main_image.subimage(f['x'], f['y'], f['w'], f['h'])
+        else
+          Gosu::Image.new(@window, @main_image, true, f['x'], f['y'], f['w'], f['h'])
+        end
       end
 
       def image_file
@@ -48,7 +64,6 @@ module Gosu
       def frames
         @json['frames']
       end
-
     end
   end
 end
