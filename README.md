@@ -55,7 +55,7 @@ Example tilesets are loaded from
 ## Contributing
 
 0. Read [CONTRIBUTING.md](https://github.com/spajus/gosu-texture-packer/blob/master/CONTRIBUTING.md)
-1. Fork it ( https://github.com/[my-github-username]/gosu_texture_packer/fork )
+1. Fork it ( https://github.com/spajus/gosu-texture-packer/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
