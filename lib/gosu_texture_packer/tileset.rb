@@ -24,8 +24,12 @@ module Gosu
         tile = @tile_cache[name]
         unless tile
           data = frames[name]
+          unless data
+            raise "Missing tile: #{name}. Available: #{frames.keys.join(', ')}"
+          end
           f = data['frame']
           tile = build_tile(f)
+          raise "Nil tile from name #{name}" unless tile
           @tile_cache[name] = tile
         end
         tile
@@ -38,7 +42,7 @@ module Gosu
         when :fast
           Gosu::Image.new(@window, image_file, true)
         when :precise
-          require 'rmagick' unless defined?(Magick)
+          require 'RMagick' unless defined?(Magick)
           Magick::ImageList.new(image_file).first
         else
           raise "Unsupported mode #{mode}. Use :fast or :precise."
