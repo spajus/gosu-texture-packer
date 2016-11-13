@@ -66,6 +66,12 @@ RSpec.describe Gosu::TexturePacker::Tileset do
   context 'precise mode' do
     let(:mode) { :precise }
     it_behaves_like 'tileset'
+
+    describe "instance" do
+      it "should load the instance without dependency issues" do
+        expect{ instance }.to_not raise_error
+      end
+    end
   end
 
 end
