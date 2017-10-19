@@ -11,7 +11,7 @@ class GameWindow < Gosu::Window
     super(640, 480, false)
     self.caption = 'Click screen with mouse to draw textures'
     @tileset = Gosu::TexturePacker.load_json(
-      self, File.join(ROOT_DIR, 'spec', 'files', '_UI.json'))
+      File.join(ROOT_DIR, 'spec', 'files', '_UI.json'))
     @drawing = {}
   end
 

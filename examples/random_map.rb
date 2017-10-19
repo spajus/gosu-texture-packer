@@ -14,7 +14,7 @@ class GameWindow < Gosu::Window
     super(WIDTH, HEIGHT, false)
     self.caption = 'Click space to toggle random redraws'
     json_path = File.join(ROOT_DIR, 'spec', 'files', 'ground.json')
-    @tileset = Gosu::TexturePacker.load_json(self, json_path, :precise)
+    @tileset = Gosu::TexturePacker.load_json(json_path, :precise)
   end
 
   def needs_cursor?
