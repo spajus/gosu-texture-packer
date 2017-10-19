@@ -3,13 +3,12 @@ module Gosu
   module TexturePacker
     class Tileset
 
-      def self.load_json(window, json, mode = :fast)
-        self.new(window, json, mode)
+      def self.load_json(json, mode = :fast)
+        self.new(json, mode)
       end
 
-      def initialize(window, json, mode)
+      def initialize(json, mode)
         @mode = mode
-        @window = window
         @json = JSON.parse(File.read(json))
         @source_dir = File.dirname(json)
         @main_image = build_main_image(mode)
@@ -40,7 +39,7 @@ module Gosu
       def build_main_image(mode)
         case mode
         when :fast
-          Gosu::Image.new(@window, image_file, true)
+          Gosu::Image.new(image_file, { :tileable => true })
         when :precise
           require 'RMagick' unless defined?(Magick)
           Magick::ImageList.new(image_file).first
@@ -53,7 +52,7 @@ module Gosu
         if @mode == :fast
           @main_image.subimage(f['x'], f['y'], f['w'], f['h'])
         else
-          Gosu::Image.new(@window, @main_image, true, f['x'], f['y'], f['w'], f['h'])
+          Gosu::Image.new(@main_image, { :tileable => true, :rect => [f['x'], f['y'], f['w'], f['h']] } )
         end
       end
 
