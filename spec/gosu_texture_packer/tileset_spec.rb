@@ -10,7 +10,7 @@ RSpec.describe Gosu::TexturePacker::Tileset do
   let(:mode) { :fast }
 
   subject(:instance) do
-    tileset_class.load_json(game_window, tileset, mode)
+    tileset_class.load_json(tileset, mode)
   end
 
   shared_examples 'tileset' do
@@ -18,6 +18,10 @@ RSpec.describe Gosu::TexturePacker::Tileset do
     describe '.load_json' do
       it 'loads existing file' do
         expect { subject }.to_not raise_error
+      end
+
+      it 'doesn\'t output Deprecation Warning' do
+        expect { subject }.to_not output.to_stdout
       end
     end
 
